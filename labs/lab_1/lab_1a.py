@@ -17,6 +17,23 @@ def request_santized_number(prompt: str) -> float:
             return number
         except ValueError:
             print("Invalid input. Please enter a valid number.")
+def request_sanitized_operation(prompt: str) -> str:
+    """
+    Function to request and sanitize user input for the operation.
+    
+    Returns:
+        str: A valid operation string (add, subtract, multiply, or divide).
+    """
+    valid_operations = ["add", "subtract", "multiply", "divide"]
+    
+    while True:
+        # We use .lower() and .strip() to handle accidental capitalization or spaces
+        user_input = input(prompt).lower().strip()
+        
+        if user_input in valid_operations:
+            return user_input
+        else:
+            print(f"Invalid operation. Please choose from: {', '.join(valid_operations)}.")
 def main():
     print("Hello World!")
 
